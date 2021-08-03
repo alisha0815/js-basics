@@ -2,15 +2,16 @@ function lowerCaseLetters(string) {
   var newArr = [];
   var arr = string.split("");
   arr.forEach((letter) => {
-    if (Number.isNaN(letter)) {
-      newArr;
-    } else {
+    if (isNaN(letter)) {
       newArr.push(letter);
     }
     return newArr;
   });
-  let sentence = newArr.join("");
-  return sentence;
+  var sentence = newArr
+    .join("")
+    .replace(/([A-Z])/g, " $1")
+    .trim();
+  return sentence.toLowerCase();
 }
 
 // Define a function called lowerCaseLetters which takes a string as argument.

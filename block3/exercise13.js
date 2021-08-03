@@ -1,10 +1,10 @@
 function shortener(string) {
   var arr = [];
   var stringArr = string.split(" ");
-  var firstName = stringArr[0].charAt(0).toUpperCase() + string.slice(1);
-  var lastName = stringArr[stringArr.length - 1][0].toUpperCase() + ".";
-  arr.push(firstName, lastName);
-  return arr.join(" ");
+  var firstName = stringArr[0].charAt(0).toUpperCase() + stringArr[0].slice(1);
+  var lastName = stringArr[stringArr.length - 1].charAt(0).toUpperCase() + ".";
+  // arr.push(firstName, lastName);
+  return firstName + " " + lastName;
 }
 
 // Define a function called shortener which takes a string as an argument.

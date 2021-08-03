@@ -1,6 +1,6 @@
 function reverser(string) {
   var arr = [];
-  for (let index = string.length - 1; index > 0; index--) {
+  for (let index = string.length; index >= 0; index--) {
     arr.push(string[index]);
   }
   return arr.join("");

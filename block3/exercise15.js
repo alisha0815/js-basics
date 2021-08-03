@@ -1,13 +1,14 @@
 function longestString(arr, minLength) {
-  var newArr = [];
+  let longest = "";
+  let longerArr = [];
   for (let index = 0; index < arr.length; index++) {
     if (arr[index].length > minLength) {
-      newArr.push(arr[index]);
-    } else {
-      newArr;
+      longest = arr[index];
+      longerArr.push(longest);
     }
-    return newArr[newArr.length];
+    var lastElement = longerArr[longerArr.length - 1];
   }
+  return lastElement;
 }
 
 // write a function called longestString which takes an array and minLength as the arguments
