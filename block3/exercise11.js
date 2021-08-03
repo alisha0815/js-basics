@@ -14,6 +14,7 @@ function lowerCaseLetters(string) {
   return sentence.toLowerCase();
 }
 
+// dfdf
 // Define a function called lowerCaseLetters which takes a string as argument.
 // Inside it define an empty array.
 // Loop through the string using the loop of your choice.
