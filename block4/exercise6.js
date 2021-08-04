@@ -23,7 +23,11 @@ function numberConverter(arr) {
   var numberList = numbers.join(",");
   var unconvertCount = unconvertable.length;
   var message = `${numCount} were converted to numbers: ${numberList}, ${unconvertCount} couldn't be converted`;
-  return message;
+  if (numbers.length === 0) {
+    return "no need for conversion";
+  } else {
+    return message;
+  }
 }
 
 // write a function called numberConverter which takes an array as an argument
