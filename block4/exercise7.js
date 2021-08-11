@@ -1,4 +1,4 @@
-function booleanChecker(arr, maxCapacity) {
+function booleanChecker(arr, maxCapacity = Infinity) {
   let bools = [];
   arr.forEach((item) => {
     if (typeof item === "boolean") {
