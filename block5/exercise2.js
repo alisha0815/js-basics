@@ -1,22 +1,23 @@
 function calc(a, b, opt) {
-  if (opt === "+" || opt === "-") {
-    b = typeof b !== "undefined" ? b : 0;
-    if (opt === "+") {
+  let newOpt = typeof opt !== "undefined" ? opt : b;
+  if (newOpt === "+" || newOpt === "-") {
+    b = typeof opt !== "undefined" ? b : 0;
+    if (newOpt === "+") {
       var sum = a + b;
       return sum;
     }
-    if (opt === "-") {
+    if (newOpt === "-") {
       var minus = a - b;
       return minus;
     }
   }
-  if (opt === "/" || opt === "*") {
-    b = typeof b !== "undefiend" ? b : 1;
-    if (opt === "*") {
+  if (newOpt === "/" || newOpt === "*") {
+    b = typeof opt !== "undefined" ? b : 1;
+    if (newOpt === "*") {
       var multi = a * b;
       return multi;
     }
-    if (opt === "/") {
+    if (newOpt === "/") {
       var divide = a / b;
       return divide;
     }
