@@ -1,4 +1,5 @@
-
+//
 module.exports = {
-    dinamicConverter, currenciesDB
+  dinamicConverter,
+  currenciesDB,
 };
