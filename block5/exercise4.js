@@ -1,10 +1,16 @@
 function tellAge(month, day, year) {
-  let today_date = new Date();
-  let timeDiff = new Date() - new Date(`${month}/${day}/${year}`);
+  let today = new Date();
+  let timeDiff = today - new Date(`${month}/${day}/${year}`);
   let days = Math.floor(timeDiff / 1000 / 60 / 60 / 24);
-  console.log(days);
+  let age = Math.floor(days / 365);
   if (timeDiff < 1) {
     return "You can't be born in the future!";
+  } else {
+    if (days < 365) {
+      return `You are ${days} days old`;
+    } else {
+      return `You are ${age} years old`;
+    }
   }
 }
 
