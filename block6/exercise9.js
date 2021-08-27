@@ -1,5 +1,10 @@
+let test = (obj) => {
+  if (!obj || Object.values(obj).length === 0) {
+    return 0;
+  }
+};
 function sumAll(obj) {
-  if (Object.values(obj) === 0 || obj === null) {
+  if (test(obj)) {
     return 0;
   } else {
     var sum = 0;
@@ -19,3 +24,14 @@ module.exports = {
 // if the object has only one value then return that.
 // if the object has more then you can loop and sum them.
 // return the sum.
+
+//======================  EXAMPLE  ========================
+// sumAll({a: 20, b: 26, c: 0})
+// 46 // <======  EXPECTED OUTPUT
+// sumAll({a: 20, b: 26, c: -56})
+// -10 // <======  EXPECTED OUTPUT
+// sumAll({})
+// 0 // <======  EXPECTED OUTPUT
+// sumAll()
+// 0 // <======  EXPECTED OUTPUT
+//=========================================================
