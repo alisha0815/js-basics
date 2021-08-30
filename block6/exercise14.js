@@ -1,7 +1,7 @@
 var obj = { a: 1, b: 2, c: 2 };
 console.log(obj);
-function splice(obj, start, end) {
-  var end = end || 1;
+function splice(obj, start, end = 1) {
+  // var end = end || 1;
   var arr = Object.entries(obj);
   // [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 2 ] ]
 
