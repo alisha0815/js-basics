@@ -11,10 +11,10 @@ const capitalize = (s) => {
 };
 
 // Add Currency
-var addCurrency = (coin, value, crypt) => {
+const addCurrency = (coin, value, crypt) => {
   // Cehck if the 'coin' is already in the array
   // Store the index
-  var index = crypt.findIndex((ele) => ele.coin === coin);
+  var index = crypt.findIndex((ele) => ele.coin === coin.coin);
   // If it is NOT, push it to the 'crypt' array.
   if (index === -1) {
     crypt.push(coin);
@@ -29,20 +29,23 @@ var addCurrency = (coin, value, crypt) => {
 // Find Currency
 const findCurrency = (coin, value, index, crypt) => {
   // get the rate of the 'coin' using the index to access the right 'coin' from the 'crypt' array.
+  var index = crypt.findIndex((ele) => ele.coin === coin.coin);
   var rate = crypt[index].rate;
+  converter();
   return converter(value, rate, coin);
   // call the converter function passing the 'value', the rate and the 'coin'.
 };
 
 // Converter
-const converter = (value, rate, coin) => {
+const converter = (value, rate, coin, index, crypt) => {
   // perform the conversion
   var result = value * rate;
+
   return tellConversion(result, coin, value);
 };
 
-const tellConversion = (result, coin, value) => {
-  return `You will receive ${result} usd for your ${value} ${coin.coin}`;
+const tellConversion = (result, coin, value, rate, index, crypt) => {
+  return `You will receive ${result} usd for your 2 ${crypt[index].coin}`;
 };
 
 // Perform the conversion and return call tellConversion to output the result.
