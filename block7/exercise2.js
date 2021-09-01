@@ -5,14 +5,14 @@ var value = 2;
 console.log(coin);
 
 // Capitalize the name
-const capitalize = (s) => {
-  if (typeof s !== "string") return "";
-  return s.charAt(0).toUpperCase() + s.slice(1);
+const capitalize = (string) => {
+  if (typeof string !== "string") return "";
+  return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
 // Pluraize
 const Pluralize = (count, noun, suffix = "s") =>
-  `${count} ${noun}${count !== 1 ? suffix : ""}`;
+  `${noun}${count !== 1 ? suffix : ""}`;
 
 console.log(Pluralize(2, "cat"));
 
@@ -37,7 +37,6 @@ const findCurrency = (coin, value, index, crypt) => {
   // get the rate of the 'coin' using the index to access the right 'coin' from the 'crypt' array.
   var index = crypt.findIndex((ele) => ele.coin === coin.coin);
   var rate = crypt[index].rate;
-  converter();
   return converter(value, rate, coin);
   // call the converter function passing the 'value', the rate and the 'coin'.
 };
@@ -51,9 +50,10 @@ const converter = (value, rate, coin) => {
 };
 
 const tellConversion = (result, coin, value) => {
-  return `You will receive ${result} usd for your ${value} ${Pluralize(
-    value,
-    coin.coin
+  var plural = Pluralize(value, coin.coin);
+  console.log(plural);
+  return `You will receive ${result} usd for your ${value} ${capitalize(
+    plural
   )}`;
 };
 
