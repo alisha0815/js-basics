@@ -10,6 +10,12 @@ const capitalize = (s) => {
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
+// Pluraize
+const Pluralize = (count, noun, suffix = "s") =>
+  `${count} ${noun}${count !== 1 ? suffix : ""}`;
+
+console.log(Pluralize(2, "cat"));
+
 // Add Currency
 const addCurrency = (coin, value, crypt) => {
   // Cehck if the 'coin' is already in the array
@@ -37,15 +43,18 @@ const findCurrency = (coin, value, index, crypt) => {
 };
 
 // Converter
-const converter = (value, rate, coin, index, crypt) => {
+const converter = (value, rate, coin) => {
   // perform the conversion
   var result = value * rate;
 
   return tellConversion(result, coin, value);
 };
 
-const tellConversion = (result, coin, value, rate, index, crypt) => {
-  return `You will receive ${result} usd for your 2 ${crypt[index].coin}`;
+const tellConversion = (result, coin, value) => {
+  return `You will receive ${result} usd for your ${value} ${Pluralize(
+    value,
+    coin.coin
+  )}`;
 };
 
 // Perform the conversion and return call tellConversion to output the result.
