@@ -3,21 +3,28 @@
 
 class Universe {
   constructor(value, destination) {
-    // Declare a vairable "self", give it this as the value
-    // var self = value;
-    if (destination === "matter") {
-      this.matter.total = value;
-    } else if (destination === "energy") {
-      this.energy.total = 0;
-    }
-  }
-  deposit(value) {
-    this.matter.total -= value;
-    this.energy.total += value;
-  }
-  create(value) {
-    this.matter.total += value;
-    this.energy.total -= value;
+    this.matter = {
+      // total = value
+      destroy(value) {
+        this.matter.total -= value;
+        this.energy.total += value;
+      },
+      create(value) {
+        this.matter.total += value;
+        this.energy.total -= value;
+      },
+    };
+    this.energy = {
+      // total = 0
+      destroy(value) {
+        this.energy.total += value;
+        this.matter.total -= value;
+      },
+      create(value) {
+        this.energy.total -= value;
+        this.matter.total += value;
+      },
+    };
   }
 }
 
