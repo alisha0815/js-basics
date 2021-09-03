@@ -3,26 +3,31 @@
 
 class Universe {
   constructor(value, destination) {
+    var self = this;
     this.matter = {
-      // total = value
-      destroy(value) {
-        this.matter.total -= value;
-        this.energy.total += value;
+      total: destination == "matter" ? value : 0,
+      destroy: function (value) {
+        // { total: 0, destroy: [Function: destroy], create: [Function: create] }
+
+        this.total -= value; //matter.total
+        self.energy.total += value;
+        // energy.total
       },
-      create(value) {
-        this.matter.total += value;
-        this.energy.total -= value;
+      create: function (value) {
+        // return this.total + value;
+        this.total += value; //matter.total
+        self.energy.total -= value;
       },
     };
     this.energy = {
-      // total = 0
-      destroy(value) {
-        this.energy.total += value;
-        this.matter.total -= value;
+      total: destination == "energy" ? value : 0,
+      destroy: function (value) {
+        this.total -= value;
+        self.matter.total += value;
       },
-      create(value) {
-        this.energy.total -= value;
-        this.matter.total += value;
+      create: function (value) {
+        this.total += value;
+        self.matter.total -= value;
       },
     };
   }
